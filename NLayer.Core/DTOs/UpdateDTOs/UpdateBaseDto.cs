@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NLayer.Core
+namespace NLayer.Core.DTOs.UpdateDTOs
 {
-    public abstract class BaseEntity
+    public class UpdateBaseDto
     {
         public int Id { get; set; }
-        public DateTime CreateDate { get; set; }
-        public DateTime? UpdateDate { get; set; }
+        public string Name { get; set; }
     }
 }
