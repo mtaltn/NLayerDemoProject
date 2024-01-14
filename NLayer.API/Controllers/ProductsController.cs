@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NLayer.Core.DTOs.CreateDTOs;
 using NLayer.Core.DTOs.EntityDTOs;
 using NLayer.Core.DTOs.ResponseDTOs;
 using NLayer.Core.DTOs.UpdateDTOs;
@@ -43,9 +44,9 @@ namespace NLayer.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Save(ProductDto productDto)
+        public async Task<IActionResult> Save(ProductCreateDto productCreateDto)
         {
-            var product = await _service.AddAsync(_mapper.Map<Product>(productDto));
+            var product = await _service.AddAsync(_mapper.Map<Product>(productCreateDto));
             var productsDto = _mapper.Map<ProductDto>(product);
             return CreateActionResult(CustomResponseDto<ProductDto>.Success(201, productsDto));
         }

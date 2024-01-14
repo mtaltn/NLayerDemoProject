@@ -1,8 +1,7 @@
-﻿namespace NLayer.Core.DTOs.EntityDTOs
+﻿namespace NLayer.Core.DTOs.CreateDTOs
 {
-    public class ProductDto : BaseDto
+    public class ProductCreateDto : CreateBaseDto
     {
-        public string Name { get; set; }
         public int Stock { get; set; }
         public decimal Price { get; set; }
         public int CategoryId { get; set; }

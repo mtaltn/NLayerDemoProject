@@ -1,6 +1,6 @@
 ﻿namespace NLayer.Core.DTOs.EntityDTOs
 {
-    public abstract class ProductFeatureDto
+    public class ProductFeatureDto
     {
         public int Id { get; set; }
         public string Color { get; set; }
