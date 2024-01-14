@@ -1,4 +1,4 @@
-﻿namespace NLayer.Core.DTOs
+﻿namespace NLayer.Core.DTOs.EntityDTOs
 {
     public abstract class BaseDto
     {

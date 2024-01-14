@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using NLayer.Core.DTOs;
+using NLayer.Core.DTOs.EntityDTOs;
 using NLayer.Core.DTOs.UpdateDTOs;
 using NLayer.Core.Models;
 
