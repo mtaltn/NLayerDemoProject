@@ -1,6 +1,6 @@
 ﻿namespace NLayer.Core.DTOs.EntityDTOs
 {
-    public class ProductWithCategoryDTO : ProductDto 
+    public class ProductWithCategoryDto : ProductDto 
     {
         public CategoryDto Category { get; set; }
     }

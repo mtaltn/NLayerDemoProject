@@ -11,7 +11,7 @@ namespace NLayer.Repository.Repositories
         {
         }
 
-        public async Task<List<Product>> GetProductWithCategory()
+        public async Task<List<Product>> GetProductWithCategoryAsync()
         {
             /*
              * Eager Loading done
