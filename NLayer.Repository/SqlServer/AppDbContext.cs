@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NLayer.Core.Models;
 using NLayer.Repository.Configurations;
+using System.Data;
 using System.Reflection;
 
 namespace NLayer.Repository.SqlServer
@@ -16,6 +17,39 @@ namespace NLayer.Repository.SqlServer
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductFeature> ProductFeatures { get; set; }
 
+        public override int SaveChanges()
+        {
+            foreach (var entry in ChangeTracker.Entries<BaseEntity>())
+            {
+                switch (entry.State)
+                {
+                    case EntityState.Added:
+                        entry.Entity.CreateDate = DateTime.Now;
+                        break;
+                    case EntityState.Modified:
+                        entry.Entity.UpdateDate = DateTime.Now;
+                        break;
+                }
+            }
+            return base.SaveChanges();
+        }
+
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            foreach (var entry in ChangeTracker.Entries<BaseEntity>())
+            {
+                switch (entry.State)
+                {
+                    case EntityState.Added:
+                        entry.Entity.CreateDate = DateTime.Now;
+                        break;
+                    case EntityState.Modified:
+                        entry.Entity.UpdateDate = DateTime.Now;
+                        break;
+                }
+            }
+            return base.SaveChangesAsync(cancellationToken);
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
