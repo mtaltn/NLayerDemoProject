@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using NLayer.API.Filters;
 using NLayer.Core.DTOs.CreateDTOs;
 using NLayer.Core.DTOs.EntityDTOs;
 using NLayer.Core.DTOs.ResponseDTOs;
@@ -9,6 +10,7 @@ using NLayer.Core.Services;
 
 namespace NLayer.API.Controllers
 {
+    [ServiceFilter(typeof(NotFoundFilter<Product>))]
     public class ProductsController : CustomBaseController
     {
         private readonly IMapper _mapper;
