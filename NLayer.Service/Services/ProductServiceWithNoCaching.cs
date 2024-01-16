@@ -12,6 +12,7 @@ namespace NLayer.Service.Services
     {
         private readonly IProductRepository _productRepository;
         private readonly IMapper _mapper;
+
         public ProductServiceWithNoCaching(
             IGenericRepository<Product> genericRepository,
             IUnitOfWork unitOfWork, 

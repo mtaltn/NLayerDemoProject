@@ -4,9 +4,9 @@ using NLayer.Core.DTOs.EntityDTOs;
 
 namespace NLayer.Service.Validations
 {
-    public class ProductDtoValidator : AbstractValidator<ProductCreateDto>
+    public class ProductCreateDtoValidator : AbstractValidator<ProductCreateDto>
     {
-        public ProductDtoValidator()
+        public ProductCreateDtoValidator()
         {
             RuleFor(x => x.Name).
                 NotNull().WithMessage("{PropertyName} is required").

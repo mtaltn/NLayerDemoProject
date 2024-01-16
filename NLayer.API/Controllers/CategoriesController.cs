@@ -3,7 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using NLayer.Core.Services;
 
 namespace NLayer.API.Controllers
-{    
+{
+    [Route("api/v1/[controller]")]
     public class CategoriesController : CustomBaseController
     {
         private readonly ICategoryService _categoryService;

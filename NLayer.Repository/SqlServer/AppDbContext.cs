@@ -19,35 +19,13 @@ namespace NLayer.Repository.SqlServer
 
         public override int SaveChanges()
         {
-            foreach (var entry in ChangeTracker.Entries<BaseEntity>())
-            {
-                switch (entry.State)
-                {
-                    case EntityState.Added:
-                        entry.Entity.CreateDate = DateTime.Now;
-                        break;
-                    case EntityState.Modified:
-                        entry.Entity.UpdateDate = DateTime.Now;
-                        break;
-                }
-            }
+            UpdateChangeTracker();
             return base.SaveChanges();
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            foreach (var entry in ChangeTracker.Entries<BaseEntity>())
-            {
-                switch (entry.State)
-                {
-                    case EntityState.Added:
-                        entry.Entity.CreateDate = DateTime.Now;
-                        break;
-                    case EntityState.Modified:
-                        entry.Entity.UpdateDate = DateTime.Now;
-                        break;
-                }
-            }
+            UpdateChangeTracker();
             return base.SaveChangesAsync(cancellationToken);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -70,6 +48,33 @@ namespace NLayer.Repository.SqlServer
             });
             */
             base.OnModelCreating(modelBuilder);
+        }
+
+        public void UpdateChangeTracker()
+        {
+            foreach (var entry in ChangeTracker.Entries())
+            {
+                if (entry.Entity is BaseEntity entityReference)
+                {
+                    switch (entry.State)
+                    {
+                        case EntityState.Added:
+                            {
+                                Entry(entityReference).Property(x => x.UpdateDate).IsModified = false;
+                                entityReference.CreateDate = DateTime.Now;
+                                break;
+                            }
+
+                        case EntityState.Modified:
+                            {
+                                Entry(entityReference).Property(x => x.CreateDate).IsModified = false;
+                                entityReference.UpdateDate = DateTime.Now;
+                                break;
+                            }
+
+                    }
+                }
+            }
         }
     }
 }

@@ -20,7 +20,8 @@ namespace NLayer.API.Modules
             builder.RegisterGeneric(typeof(GenericRepository<>)).As(typeof(IGenericRepository<>)).InstancePerLifetimeScope();
             builder.RegisterGeneric(typeof(Service<>)).As(typeof(IService<>)).InstancePerLifetimeScope();
 
-            builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
+
+            builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
 
             var apiAssembly = Assembly.GetExecutingAssembly();
 
@@ -32,7 +33,17 @@ namespace NLayer.API.Modules
                 Where(x => x.Name.EndsWith("Repository")).AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterAssemblyTypes(apiAssembly, repoAssembly, serviceAssembly).
                 Where(x => x.Name.EndsWith("Service")).AsImplementedInterfaces().InstancePerLifetimeScope();
+
             builder.RegisterType<ProductServiceWithCaching>().As<IProductService>();
+
+            // upgrade 
+
+            builder.RegisterGeneric(typeof(ServiceWithDto<,>)).As(typeof(IServiceWithDto<,>)).InstancePerLifetimeScope();
+
+            builder.RegisterType<ProductServiceWithDto>().As<IProductServiceWithDto>().InstancePerLifetimeScope();
+
+            builder.RegisterAssemblyTypes(apiAssembly, repoAssembly, serviceAssembly).
+                Where(x => x.Name.EndsWith("ServiceWithDto")).AsImplementedInterfaces().InstancePerLifetimeScope();
 
             /*
              * InstancePerLifetimeScope => scope

@@ -22,7 +22,7 @@ builder.Services.
     }).
     AddFluentValidation(x => 
     { 
-        x.RegisterValidatorsFromAssemblyContaining<ProductDtoValidator>(); 
+        x.RegisterValidatorsFromAssemblyContaining<ProductCreateDtoValidator>(); 
         x.DisableDataAnnotationsValidation = true;
         x.ValidatorOptions.LanguageManager.Culture = new CultureInfo("tr");
     });
