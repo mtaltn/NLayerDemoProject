@@ -161,15 +161,7 @@ namespace NLayer.Caching.Redis.Repositories
             if (response is not null)
             {
                 var productWithCategoryList = response;
-                var products = productWithCategoryList.Select(p => new Product
-                {
-                    Id = p.Id,
-                    Name = p.Name,
-                    Stock = p.Stock,
-                    Price = p.Price,
-                    CategoryId = p.CategoryId
-                }).ToList();
-
+                var products = _mapper.Map<List<Product>>(productWithCategoryList);                
                 foreach (var product in products)
                 {
                     await _cacheRepository.HashSetAsync(productKey, product.Id, JsonSerializer.Serialize(product));
