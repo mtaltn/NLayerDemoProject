@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="SqlServer\**" />
+    <EmbeddedResource Remove="SqlServer\**" />
+    <None Remove="SqlServer\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.1">
@@ -17,10 +23,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NLayer.Core\NLayer.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="SqlServer\" />
   </ItemGroup>
 
 </Project>
