@@ -1,5 +1,5 @@
 ﻿using NLayer.Core.UnitOfWorks;
-using NLayer.Repository.SqlServer;
+using NLayer.Repository.Entityframework.Contexts.AppDbContexts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
