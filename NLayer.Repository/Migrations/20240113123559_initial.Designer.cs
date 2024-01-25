@@ -5,7 +5,8 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using NLayer.Repository.SqlServer;
+using NLayer.Repository.Entityframework.Contexts.AppDbContexts;
+
 
 #nullable disable
 

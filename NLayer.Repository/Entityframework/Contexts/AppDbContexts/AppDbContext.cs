@@ -1,10 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NLayer.Core.Models;
-using NLayer.Repository.Configurations;
-using System.Data;
 using System.Reflection;
 
-namespace NLayer.Repository.SqlServer
+namespace NLayer.Repository.Entityframework.Contexts.AppDbContexts
 {
     public class AppDbContext : DbContext
     {

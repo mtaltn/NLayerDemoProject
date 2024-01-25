@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NLayer.Core.Repositories;
-using NLayer.Repository.SqlServer;
+using NLayer.Repository.Entityframework.Contexts.AppDbContexts;
 using System.Linq.Expressions;
 
 namespace NLayer.Repository.Repositories
