@@ -14,7 +14,7 @@ using IDatabase = StackExchange.Redis.IDatabase;
 
 namespace NLayer.Caching.Redis.Repositories
 {
-    public class ProductRepositoryWithCacheDecorator : IProductService
+    public class ProductServiceWithCacheDecorator : IProductService
     {
         private const string productKey = "productCaches";
         private readonly IProductRepository _repository;
@@ -23,7 +23,7 @@ namespace NLayer.Caching.Redis.Repositories
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public ProductRepositoryWithCacheDecorator(RedisService redisService, IProductRepository repository, IUnitOfWork unitOfWork, IMapper mapper)
+        public ProductServiceWithCacheDecorator(RedisService redisService, IProductRepository repository, IUnitOfWork unitOfWork, IMapper mapper)
         {
             _redisService = redisService;
             _cacheRepository = _redisService.GetDb(1);
