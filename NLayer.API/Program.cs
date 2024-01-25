@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using NLayer.API.Filters;
 using NLayer.API.Middlewares;
 using NLayer.API.Modules;
+using NLayer.Caching.Redis;
 using NLayer.Repository.SqlServer;
 using NLayer.Service.Mapping;
 using NLayer.Service.Validations;
@@ -52,6 +53,11 @@ builder.Services.AddDbContext<AppDbContext>(x =>
 builder.Host.UseServiceProviderFactory
     (new AutofacServiceProviderFactory ());
 builder.Host.ConfigureContainer<ContainerBuilder>(containetBuilder => containetBuilder.RegisterModule(new RepoServiceModule()));
+
+builder.Services.AddSingleton<RedisService>(sp =>
+{
+    return new RedisService(builder.Configuration["CacheOptions:Url"]);
+});
 
 var app = builder.Build();
 
