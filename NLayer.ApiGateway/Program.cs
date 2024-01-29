@@ -54,21 +54,12 @@ services.PostConfigure<FileConfiguration>(fileConfiguration =>
     }
 });
 
-//services.AddReverseProxy().LoadFromConfig(configuration.GetSection("Yarp"));
-//services.AddOpenTelemetryExtension(configuration);
-
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (appSettings.ProxyProvider == "Ocelot")
-{
-    app.UseWebSockets();
-    await app.UseOcelot();
-}
-else if (appSettings.ProxyProvider == "Yarp")
-{
-    //app.MapReverseProxy();
-}
+
+app.UseWebSockets();
+await app.UseOcelot();
+
 app.Run();
 
