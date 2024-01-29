@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34018.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLayer.Core", "NLayer.Core\NLayer.Core.csproj", "{3AA5390C-77B0-4084-A8E9-E0D709AA3AE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLayer.Core", "NLayer.Core\NLayer.Core.csproj", "{3AA5390C-77B0-4084-A8E9-E0D709AA3AE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLayer.Caching", "NLayer.Caching\NLayer.Caching.csproj", "{CE1D347C-6DEB-42F1-AFC7-79897E8B5D5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLayer.Caching", "NLayer.Caching\NLayer.Caching.csproj", "{CE1D347C-6DEB-42F1-AFC7-79897E8B5D5C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLayer.Repository", "NLayer.Repository\NLayer.Repository.csproj", "{AB0B2388-427A-4F6F-A12C-A071BBE50BF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLayer.Repository", "NLayer.Repository\NLayer.Repository.csproj", "{AB0B2388-427A-4F6F-A12C-A071BBE50BF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLayer.Service", "NLayer.Service\NLayer.Service.csproj", "{2539BCE2-7462-44F3-8479-A85F81FEFC6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLayer.Service", "NLayer.Service\NLayer.Service.csproj", "{2539BCE2-7462-44F3-8479-A85F81FEFC6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLayer.WEB", "NLayer.WEB\NLayer.WEB.csproj", "{7E8D9FB0-CED3-4439-B0B4-45D9EAA058E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLayer.WEB", "NLayer.WEB\NLayer.WEB.csproj", "{7E8D9FB0-CED3-4439-B0B4-45D9EAA058E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLayer.API", "NLayer.API\NLayer.API.csproj", "{DA29BCA3-301B-4366-A641-4B3B785F6344}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLayer.API", "NLayer.API\NLayer.API.csproj", "{DA29BCA3-301B-4366-A641-4B3B785F6344}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLayer.ApiGateway", "NLayer.ApiGateway\NLayer.ApiGateway.csproj", "{35DF7C4F-81B8-4677-9F09-69E63040246B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{DA29BCA3-301B-4366-A641-4B3B785F6344}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA29BCA3-301B-4366-A641-4B3B785F6344}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA29BCA3-301B-4366-A641-4B3B785F6344}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35DF7C4F-81B8-4677-9F09-69E63040246B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35DF7C4F-81B8-4677-9F09-69E63040246B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35DF7C4F-81B8-4677-9F09-69E63040246B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35DF7C4F-81B8-4677-9F09-69E63040246B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
